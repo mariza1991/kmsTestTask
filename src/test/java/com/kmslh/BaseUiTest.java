@@ -6,6 +6,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.kmslh.configs.TestConfig;
 import com.kmslh.configs.UiConfig;
 import com.kmslh.steps.ui.UiSteps;
+import com.kmslh.td.UiTestData;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,6 +22,8 @@ public class BaseUiTest {
 
     @Autowired
     protected UiSteps ui;
+
+    protected UiTestData testData;
 
     @BeforeEach
     void setUp() {

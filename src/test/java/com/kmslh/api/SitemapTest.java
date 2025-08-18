@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SitemapTest extends BaseApiTest {
 
-    @Test
+    @Test //TODO если время останется
     void sitemapIndex_shouldReturn200() {
         var response = apiClient.getSitemapIndex();
         assertThat(response.status()).isEqualTo(200);

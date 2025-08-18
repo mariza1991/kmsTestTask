@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Component
@@ -14,9 +15,11 @@ import static com.codeborne.selenide.Selenide.$x;
 public class HomePage {
 
     @Getter
-    private final BaseConfig config;
+    protected final BaseConfig config;
 
     private final String mainContentXpath = "//*[@data-elementor-type='wp-page']";
+    private final String bookADemoBtnXpath = "//*[@data-id='566e46f']//a";
+    private final String heroBlockContentXpath = "//*[@data-widget-number='180617408']";
 
     public void open() {
         Selenide.open(config.getBaseUrl());
@@ -24,5 +27,17 @@ public class HomePage {
 
     public void checkWasOpened() {
         $x(mainContentXpath).should(exist);
+    }
+
+    public void waitHeroBlockIsLoaded() {
+        $x(bookADemoBtnXpath).should(visible);
+    }
+
+    public void clickOnBookADemo() {
+        $x(heroBlockContentXpath).click();
+    }
+
+    public void scrollDownToHeroBlock() {
+
     }
 }
